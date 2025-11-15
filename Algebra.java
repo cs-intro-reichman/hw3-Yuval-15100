@@ -152,6 +152,8 @@ public class Algebra {
 
 		while (result < x) {
 			result = times(squareRoot, squareRoot);
+			if (result > x) {
+				return minus(squareRoot, 1); }
 			squareRoot++; } 
 
 		return minus(squareRoot, 1);
