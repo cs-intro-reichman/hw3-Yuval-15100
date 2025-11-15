@@ -28,22 +28,69 @@ public class Anagram {
 
 	// Returns true if the two given strings are anagrams, false otherwise.
 	public static boolean isAnagram(String str1, String str2) {
-		// Replace the following statement with your code
-		return false;
+		
+		String s1 = preProcess(str1);
+		String s2 = preProcess(str2);
+
+		if (s1.length() != s2.length()) {
+			return false; }
+
+		StringBuilder st2 = new StringBuilder(s2);
+
+			for (int i = 0; i < s1.length(); i++) {
+				char c = s1.charAt(i);
+				boolean found = false;
+
+			for(int a = 0; a < st2.length(); a++){
+				
+				if (st2.charAt(a) == c) {
+					st2.deleteCharAt(a); 
+					found = true; 
+					break; 
+				} 
+			}
+
+			if (found != true) {
+				return false; }
+
+			}
+		
+		return true;
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		return "";
+		
+		String lowStr = str.toLowerCase();
+
+		StringBuilder newString = new StringBuilder(lowStr);
+
+		for(int i=0; i < newString.length() ; i++) {
+			char c = newString.charAt(i);
+
+			if (c < 'a' || c > 'z') {
+				newString.deleteCharAt(i); 
+				i--; }
+		
+			}
+
+		return newString.toString();
 	} 
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 
 	public static String randomAnagram(String str) {
-		// Replace the following statement with your code
-		return "";
+		
+			StringBuilder originalStr = new StringBuilder(str);
+		StringBuilder newStr = new StringBuilder();
+
+		for(int i = 0; originalStr.length() > 0; i++) {
+			int randomIndex = (int) (Math.random() * originalStr.length());
+			newStr.append(originalStr.charAt(randomIndex));
+			originalStr.deleteCharAt(randomIndex); }
+		
+		return newStr.toString();
 	}
 }
