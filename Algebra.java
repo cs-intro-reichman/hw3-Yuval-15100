@@ -150,7 +150,7 @@ public class Algebra {
 		int squareRoot = 1;
 		int result = 0;
 
-		while (result <= x) {
+		while (result < x) {
 			result = times(squareRoot, squareRoot);
 			squareRoot++; } 
 

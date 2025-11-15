@@ -66,7 +66,7 @@ public class LoanCalc {
        
 		iterationCounter = 0;
 		double L = (loan / n);
-		double H = 2.0 * L;
+		double H = loan;
 
 		 while (endBalance(loan, rate, n, H) > 0) {
 			H = H * 2.0; }
